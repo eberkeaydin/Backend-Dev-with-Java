@@ -20,11 +20,8 @@ public class Test {
     static int division(int num1, int num2) {
         if (num2 == 0){
             return 0;
-
         }
-        int result = num1 / num2;
-        return result;
-
+        return num1 / num2;
     }
 
     static void mod(int num1, int num2) {
@@ -45,13 +42,14 @@ public class Test {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        String menu = "1 for sum \n"
-                + "2 for subtract \n"
-                + "3 for multiply \n"
-                + "4 for division \n"
-                + "5 for mod \n"
-                + "6 for area and perimeter for quad \n"
-                + "7 for exit";
+        String menu = """
+                1 for sum\s
+                2 for subtract\s
+                3 for multiply\s
+                4 for division\s
+                5 for mod\s
+                6 for area and perimeter for quad\s
+                7 for exit""";
 
         while (true){
             System.out.println(menu);
@@ -70,32 +68,26 @@ public class Test {
             System.out.print("Enter the number two : ");
             int num2 = scan.nextInt();
 
-            switch (select){
-                case 1:
-                    sum(num1, num2);
-                    break;
-                case 2:
-                    sub(num1, num2);
-                    break;
-                case 3:
-                    multiply(num1, num2);
-                    break;
-                case 4:
-                    if (division(num1, num2) == 0){
+            switch (select) {
+                case 1 -> sum(num1, num2);
+                case 2 -> sub(num1, num2);
+                case 3 -> multiply(num1, num2);
+                case 4 -> {
+                    if (division(num1, num2) == 0) {
                         System.out.println("Infinite");
+                    } else {
+                        System.out.println("Division of num1 and num2 is : " + division(num1, num2));
                     }
-                    System.out.println("Division of num1 and num2 is :" + division(num1, num2));
-                    break;
-                case 5:
-                    mod(num1, num2);
-                    break;
-                case 6:
+                }
+                case 5 -> mod(num1, num2);
+                case 6 -> {
                     area(num1, num2);
                     perimeter(num1, num2);
-                    break;
-                default:
-                    break;
+                }
+                default -> {
+                }
             }
+            System.out.println("------------");
         }
 
 
