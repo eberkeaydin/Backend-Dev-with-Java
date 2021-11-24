@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Test {
+public class BodyMassIndex {
     public static void main(String[] args){
         double height, weight;
         double bodyMassIndex ;
